@@ -1,0 +1,28 @@
+syntax = "proto3";
+package TCP_MESSAGE;
+
+import "sec1.proto";
+
+enum RelayState {
+    TurnOff = 0;
+    TurnOn = 1;
+}
+
+enum MessageType {
+    NewSecuritySession = 0;
+    SwitchRelayRequest = 1;
+    CheckAlive = 2;//
+    GetState = 3; //this still not compiled!
+    PayloadData = 4;
+}
+
+message Payload {
+    MessageType type = 1;
+    Sec1Payload sec1 = 2;
+    uint32 relayNumber = 3;
+    RelayState relayState = 4;
+    
+    bytes futureToken = 5;
+    string StringData = 6;
+    bool IsAlive = 7;//
+}

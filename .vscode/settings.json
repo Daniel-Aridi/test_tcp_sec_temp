@@ -1,0 +1,4 @@
+{
+    "C_Cpp.default.compilerPath": "C:\\Program Files (x86)\\MinGW\\mingw64\\bin\\gcc.exe",
+    "idf.adapterTargetName": "esp32"
+}

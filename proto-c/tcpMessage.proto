@@ -1,0 +1,32 @@
+syntax = "proto3";
+package TCP_MESSAGE;
+
+import "sec1.proto";
+
+
+enum PayloadType {
+
+    Alive_Request = 0;
+    Alive_Response = 1;
+    Relay_Command_Request = 2;
+    Relay_Command_Response = 3;
+    Relay_Status_Request = 4;
+    Relay_Status_Response = 5;
+    Security_Session_Request = 6;
+    Security_Session_Response = 7;
+}
+
+message RelayConfig{
+
+    int32 relayId = 1;
+    bool relayStatus = 2;
+}
+
+message Message{
+
+    PayloadType type = 1;
+    bool aliveResponse = 2;
+    repeated RelayConfig relayConfig = 3;
+    Sec1Payload sec1 = 4;
+}
+
